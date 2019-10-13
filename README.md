@@ -1,2 +1,5 @@
-# Ti_MST_Prim
-Prim's Minimum Spanning Tree
+# Prim's Minimum Spanning Tree
+
+<p align="center">
+  <img src="img/PrimAlgDemo.gif">
+</p>
