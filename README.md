@@ -32,3 +32,18 @@ The time complexity of Prim's algorithm depends on the data structures used for 
 | Input Graph	     | Output Graph |      
 | ------------- | ------------- |
 | ![Input Graph](img/graph_input.png)        | ![Output Graph](img/graph_output.png)  |
+
+
+## Illustration of graph in program
+
+<p align="center">
+  <b>Input Graph</b>
+  <br/><br/>
+  <img src="img/input.png">
+</p>
+
+<p align="center">
+  <b>Output Graph</b>
+  <br/><br/>
+  <img src="img/input.png">
+</p>
