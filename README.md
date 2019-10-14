@@ -6,7 +6,6 @@ In computer science, <b>Prim's</b> (also known as <b>Jarník's</b>) algorithm is
   <img src="img/PrimAlgDemo.gif">
 </p>
 
----
 
 ## Description
 
@@ -16,13 +15,23 @@ The algorithm may informally be described as performing the following steps:
 2. Grow the tree by one edge: of the edges that connect the tree to vertices not yet in the tree, find the minimum-weight edge, and transfer it to the tree.
 3. Repeat step 2 (until all vertices are in the tree).
 
----
 
 ## Time complexity
 
+The time complexity of Prim's algorithm depends on the data structures used for the graph and for ordering the edges by weight, which can be done using a <i>priority queue</i>. The following table shows the typical choices:
 
 | Minimum edge weight data structure	     | Time complexity (total)      
 | ------------- | ------------- |
 | adjacency matrix, searching         | ![adjacency matrix, searching](img/formula_1.svg)      |
 | binary heap and adjacency list        | ![binary heap and adjacency list](img/formula_2.svg)  |
 | Fibonacci heap and adjacency list        | ![Fibonacci heap and adjacency list](img/formula_3.svg)  |
+
+
+## Example
+
+Input Graph:
+
+
+<p align="center">
+  <img src="img/graph_input.png">
+</p>
