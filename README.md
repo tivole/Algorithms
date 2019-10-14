@@ -5,3 +5,24 @@ In computer science, <b>Prim's</b> (also known as <b>Jarník's</b>) algorithm is
 <p align="center">
   <img src="img/PrimAlgDemo.gif">
 </p>
+
+---
+
+## Description
+
+The algorithm may informally be described as performing the following steps:
+
+1. Initialize a tree with a single vertex, chosen arbitrarily from the graph.
+2. Grow the tree by one edge: of the edges that connect the tree to vertices not yet in the tree, find the minimum-weight edge, and transfer it to the tree.
+3. Repeat step 2 (until all vertices are in the tree).
+
+---
+
+## Time complexity
+
+
+| Minimum edge weight data structure	     | Time complexity (total)      
+| ------------- | ------------- |
+| adjacency matrix, searching         | ![adjacency matrix, searching](img/formula_1.svg)      |
+| binary heap and adjacency list        | ![binary heap and adjacency list](img/formula_2.svg)  |
+| Fibonacci heap and adjacency list        | ![Fibonacci heap and adjacency list](img/formula_3.svg)  |
