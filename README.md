@@ -36,18 +36,34 @@ The time complexity of Prim's algorithm depends on the data structures used for 
 
 ## Illustration of graph in program
 
-<p align="center">
-  <b>Input Graph</b>
-  <br/><br/>
-  <img src="img/input.png">
-</p>
-
-<p align="center">
-  <b>Output Graph</b>
-  <br/><br/>
-  <img src="img/input.png">
-</p>
-
 | Input Graph	     | Output Graph |      
 | ------------- | ------------- |
 | ![Input Graph Illustration](img/input.png)        | ![Output Graph Illustration](img/output.png)  |
+
+
+## Code
+
+```cpp
+void MST_Prim(int *Graph, int *ResultGraph, int n)  {
+	int i, j, k, parent[n], key[n];
+	bool mstSet[n];
+
+	for (i = 0; i < n; i++)
+		key[i] = INT_MAX, mstSet[i] = false;
+
+	key[0] = 0;
+	parent[0] = -1;
+
+	for (i = 0; i < n-1; i++) {
+		k = minKey(key, mstSet, n);
+		mstSet[k] = true;
+		for (j = 0; j < n; j++)
+			if (Graph[ index(k, j, n) ] && !mstSet[j] && Graph[ index(k, j, n) ] < key[j])
+				parent[j] = k, key[j] = Graph[ index(k, j, n) ];
+	}
+
+	for(i = 0; i < n; i++) ResultGraph[ index(parent[i], i, n) ] = Graph[ index(i, parent[i], n) ];
+
+	return;
+}
+```
