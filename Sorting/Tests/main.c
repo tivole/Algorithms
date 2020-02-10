@@ -6,6 +6,7 @@
 #include "../Quick_Sort/quick_sort.h"
 #include "../Heap_Sort/heap_sort.h"
 #include "../Merge_Sort/merge_sort.h"
+#include "../Insertion_Sort/insertion_sort.h"
 
 void generate(FILE*, int);
 int check_sequence(FILE*);
@@ -34,6 +35,7 @@ int main(void) {
     result = check_sequence(f);
 
     printf("*********\n");
+    printf("N = %d\n", N);
     printf("Quick Sort Test Results:\n");
     printf("time_spent = %.10lf\n%d\n\n", time_spent, result);
 
@@ -51,6 +53,7 @@ int main(void) {
     result = check_sequence(f);
 
     printf("*********\n");
+    printf("N = %d\n", N);
     printf("Heap Sort Test Results:\n");
     printf("time_spent = %.10lf\n%d\n\n", time_spent, result);
 
@@ -68,8 +71,28 @@ int main(void) {
     result = check_sequence(f);
 
     printf("*********\n");
+    printf("N = %d\n", N);
     printf("Merge Sort Test Results:\n");
     printf("time_spent = %.10lf\n%d\n\n", time_spent, result);
+
+
+    /* Insertion Merge Sort */
+
+    N = 100000;
+    generate(f, N);
+    sequence = read_sequence(f);
+    begin_time = clock();
+    insertion_sort(sequence, N);
+    end_time = clock();
+    time_spent = (double)(end_time - begin_time) / CLOCKS_PER_SEC;
+    write_sequence(f, sequence, N);
+    result = check_sequence(f);
+
+    printf("*********\n");
+    printf("N = %d\n", N);
+    printf("Insertion Sort Test Results:\n");
+    printf("time_spent = %.10lf\n%d\n\n", time_spent, result);
+
 
     return 0;
 }
