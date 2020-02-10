@@ -2,7 +2,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "../Quick_Sort/quick_sort.h"
+#include "../Heap_Sort/heap_sort.h"
 
 void generate(FILE*, int);
 int check_sequence(FILE*);
@@ -14,17 +16,42 @@ int main(void) {
 
     FILE *f = NULL;
     int result, N, *sequence = NULL;
+    clock_t begin_time, end_time;
+    double time_spent;
+
 
     /* Checking Quck Sort */
 
-    N = 100;
+    N = 1000000;
     generate(f, N);
     sequence = read_sequence(f);
+    begin_time = clock();
     quick_sort(sequence, 0, N-1);
+    end_time = clock();
+    time_spent = (double)(end_time - begin_time) / CLOCKS_PER_SEC;
     write_sequence(f, sequence, N);
     result = check_sequence(f);
 
-    printf("%d\n", result);
+    printf("*********\n");
+    printf("Quick Sort Test Results:\n");
+    printf("time_spent = %.10lf\n%d\n\n", time_spent, result);
+
+
+    /* Checking Heap Sort */
+
+    N = 1000000;
+    generate(f, N);
+    sequence = read_sequence(f);
+    begin_time = clock();
+    heap_sort(sequence, N);
+    end_time = clock();
+    time_spent = (double)(end_time - begin_time) / CLOCKS_PER_SEC;
+    write_sequence(f, sequence, N);
+    result = check_sequence(f);
+
+    printf("*********\n");
+    printf("Heap Sort Test Results:\n");
+    printf("time_spent = %.10lf\n%d\n\n", time_spent, result);
 
     return 0;
 }
