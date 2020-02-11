@@ -4,10 +4,11 @@ void swap(int *xp, int *yp) {
     int temp = *xp;
     *xp = *yp;
     *yp = temp;
+    return;
 }
  
 void selection_sort(int *arr, int n) { 
-    int i, j, min_idx;  
+    int i, j, min_idx;
   
     for (i = 0; i < n-1; i++) {
         min_idx = i;
@@ -17,4 +18,5 @@ void selection_sort(int *arr, int n) {
 
         swap(&arr[min_idx], &arr[i]);
     }
+    return;
 }
