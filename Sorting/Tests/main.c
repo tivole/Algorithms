@@ -8,6 +8,7 @@
 #include "../Merge_Sort/merge_sort.h"
 #include "../Insertion_Sort/insertion_sort.h"
 #include "../Shell_Sort/shell_sort.h"
+#include "../Selection_Sort/selection_sort.h"
 
 void generate(FILE*, int);
 int check_sequence(FILE*);
@@ -102,6 +103,24 @@ int main(void) {
     sequence = read_sequence(f);
     begin_time = clock();
     shell_sort(sequence, N);
+    end_time = clock();
+    time_spent = (double)(end_time - begin_time) / CLOCKS_PER_SEC;
+    write_sequence(f, sequence, N);
+    result = check_sequence(f);
+
+    printf("*********\n");
+    printf("N = %d\n", N);
+    printf("Shell Sort Test Results:\n");
+    printf("time_spent = %.10lf\n%d\n\n", time_spent, result);
+
+
+    /* Checking Selectiono Sort */
+
+    N = 100000;
+    generate(f, N);
+    sequence = read_sequence(f);
+    begin_time = clock();
+    selection_sort(sequence, N);
     end_time = clock();
     time_spent = (double)(end_time - begin_time) / CLOCKS_PER_SEC;
     write_sequence(f, sequence, N);
